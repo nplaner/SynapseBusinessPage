@@ -1,17 +1,15 @@
 const express = require("express");
-const { synapse } = require("synapse");
+const synapse = require("@synapsejs/synapse");
 const path = require("path");
 // const cors = require("cors");
 
 const app = express();
 const port = 3000;
 
-app.use("*", (request, response) => {
-  response.sendFile(path.resolve(__dirname, "/src/index.html"));
-});
+app.use(express.static(path.resolve(__dirname, "./dist")));
 
-app.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "/src/index.html"));
+app.use("*", (request, response) => {
+  response.sendFile(path.resolve(__dirname, "./dist/index.html"));
 });
 
 app.use((err, req, res, next) => {

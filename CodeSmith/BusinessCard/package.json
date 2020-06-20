@@ -4,13 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode production"
+    "production": "NODE_ENV=production node dist/main.js",
+    "start": "node server.js",
+    "build": "NODE_ENV=production && webpack"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@synapsejs/synapse": "^1.0.1",
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "keen-slider": "^4.2.0",
     "react": "^16.13.1",
